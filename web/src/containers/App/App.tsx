@@ -1,9 +1,10 @@
-import React, { lazy } from "react";
-import { useRoutes, RouteObject } from "react-router-dom";
 import { Box, Flex } from "@chakra-ui/react";
+import { lazy } from "react";
+import { RouteObject, useRoutes } from "react-router-dom";
 
-import { NamesOfParentRoutes } from "@shared/constants";
+import { ProfileContainer } from "@containers/Profile/continers";
 import { Loadable, NotFound } from "@shared/components";
+import { NamesOfParentRoutes } from "@shared/constants";
 import { AuthGuard, GuestGuard } from "@shared/guards";
 
 const ApplicationContainer = Loadable(lazy(() => import("@containers/App/ApplicationContainer")));
@@ -23,6 +24,15 @@ const routes: RouteObject[] = [
     element: (
       <AuthGuard>
         <ApplicationContainer />
+      </AuthGuard>
+    ),
+  },
+
+  {
+    path: `${NamesOfParentRoutes.PROFILE}*`,
+    element: (
+      <AuthGuard>
+        <ProfileContainer />
       </AuthGuard>
     ),
   },
