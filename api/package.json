@@ -5,11 +5,13 @@
   "scripts": {
     "build": "rm -rf dist && tsc",
     "dev": "node ./node_modules/pm2/bin/pm2-runtime start ecosystem.develop.config.js",
+    "start:local": "npx nodemon --exec ts-node --files ./app/app.ts",
     "lint": "eslint \"app/**/*.{js,ts}\" --fix",
     "prettier": "prettier --write --print-width 120  --trailing-comma all \"**/*.+(ts|js)\"",
     "commit-hook": "npm run license-checker && npm run jsdoc && npm run prettier && npm run lint && git add . && npm run test",
     "start": "node ./node_modules/pm2/bin/pm2-runtime start ecosystem.config.js",
-    "test": "NODE_ENV=test jest --runInBand --forceExit --coverage",
+    "test": "jest --runInBand --forceExit --coverage",
+    "test:userRoutes": "jest --watchAll  user.routes.test.ts",
     "knex": "knex --knexfile app/knexConfig.ts",
     "jsdoc": "typedoc",
     "license-checker": "license-checker-rseidelsohn --production --json --out licenses.json && chmod 644 licenses.json && node licence_review.js"
