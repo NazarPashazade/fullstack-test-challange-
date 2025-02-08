@@ -2,10 +2,11 @@ import { ParameterizedContext } from "koa";
 import { SwaggerAPI } from "koa-joi-router-docs-v2";
 
 import auth from "./auth";
+import userRouter from "./user.routes";
 
 const generator = new SwaggerAPI();
 
-[auth].forEach((route) => {
+[auth, userRouter].forEach((route) => {
   generator.addJoiRouter(route);
 });
 

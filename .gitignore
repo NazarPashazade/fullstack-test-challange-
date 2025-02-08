@@ -49,7 +49,7 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-.env
+# .env
 .env.test
 licenses.json
 ```

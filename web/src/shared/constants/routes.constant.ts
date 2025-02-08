@@ -1,6 +1,7 @@
 export const NamesOfParentRoutes = {
   AUTH: "/auth",
   APP: "/",
+  PROFILE: "/profile",
 };
 
 export const NameOfRoutes = {

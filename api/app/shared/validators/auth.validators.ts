@@ -14,3 +14,9 @@ export const headerValidator = Joi.object({
 }).options({
   allowUnknown: true,
 });
+
+export const userProfileValidator = Joi.object({
+  id: Joi.number().integer().required(),
+  email: Joi.string().email().required(),
+  name: Joi.string().required(),
+});

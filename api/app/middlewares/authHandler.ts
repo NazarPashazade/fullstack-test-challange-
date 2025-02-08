@@ -12,7 +12,9 @@ import { permissionDenied } from "../shared/constants";
  * @returns {Promise<Koa.Next>} The next middleware function in the Koa middleware stack.
  * @throws {Error} If the user is not authenticated (i.e., the token is not valid or the user does not exist), it throws an error.
  */
-export default async (ctx: Koa.Context, next: () => Koa.Next): Promise<Koa.Next> => {
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async (ctx: Koa.Context, next: () => Promise<any>): Promise<any> => {
   const token = getToken(ctx.request.headers.authorization);
   if (token) {
     const user: User = await getUserFromToken(token);

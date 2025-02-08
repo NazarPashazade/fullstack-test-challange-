@@ -2,9 +2,9 @@
   "name": "v3",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@1.22.22",
   "engines": {
-    "node": "20.12.2"
+    "node": "22.12.0"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -60,6 +60,7 @@
   ],
   "scripts": {
     "start": "tsc && VITE_APP_ENV=dev vite",
+    "start:local": "vite",
     "build": "vite build",
     "serve": "vite preview",
     "commit-hook": "npm run license-checker && npm run prettier && npm run lint && npm run stylelint && git add . ",
